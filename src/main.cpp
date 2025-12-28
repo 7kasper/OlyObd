@@ -30,9 +30,10 @@ MCP_CAN CAN(SPI_CS_PIN);
 #define PID_COOLANT_TEMP            0x05
 #define PID_THROTTLE_POSITION       0x11
 #define PID_ENGINE_LOAD             0x04
-#define PID_INTAKE_TEMP             0x0F
-#define PID_MAF_FLOW                0x10
-#define PID_FUEL_PRESSURE           0x0A
+// Additional PIDs available for future extension:
+// #define PID_INTAKE_TEMP             0x0F
+// #define PID_MAF_FLOW                0x10
+// #define PID_FUEL_PRESSURE           0x0A
 
 // OBD-II Request structure
 #define OBD_REQUEST_ID              0x7DF  // Functional broadcast address
@@ -90,7 +91,7 @@ bool readOBDResponse(byte pid, byte* response) {
                 }
             }
         }
-        delay(5);
+        delay(10);
     }
     return false;
 }
